@@ -12,7 +12,7 @@ int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **ar
 {
     int retval;
     const char *puser, *ppwd;
-	LDAP *ldaph;
+    LDAP *ldaph;
 
     if( argc < 1 ) {
         pam_syslog(pamh, LOG_ERR, "No option");
@@ -42,12 +42,12 @@ int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **ar
         return PAM_SERVICE_ERR;
     }
 
-	if( (retval=ldap_simple_bind_s(ldaph, puser, ppwd)) != LDAP_SUCCESS ) {
+    if( (retval=ldap_simple_bind_s(ldaph, puser, ppwd)) != LDAP_SUCCESS ) {
         pam_syslog(pamh, LOG_NOTICE, "Access denied: %s", ldap_err2string(retval));
         return PAM_AUTH_ERR;
     }
 
-	ldap_unbind_s(ldaph);
+    ldap_unbind_s(ldaph);
 
     return PAM_SUCCESS;
 }
