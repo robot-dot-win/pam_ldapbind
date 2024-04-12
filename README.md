@@ -5,12 +5,12 @@ On success it returns PAM_SUCCESS, otherwise it returns PAM_AUTH_ERR, PAM_SERVIC
 
 No credentials are awarded by this module.
 ## BUILD
-The source program is a single C99 file.
+The source program is a single C99(and newer) file.
 
 Requires: pam-devel, openldap-devel
 
 ```bash
-$ gcc pam_ldapbind.c -o pam_ldapbind.so -shared -fPIC -lpam -lldap -std=c99 -Wno-implicit-function-declaration
+$ gcc pam_ldapbind.c -o pam_ldapbind.so -shared -fPIC -lpam -lldap -Wno-implicit-function-declaration
 ```
 ## USAGE
 ```
