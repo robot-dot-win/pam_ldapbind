@@ -10,7 +10,7 @@ The source program is a single C99(and newer) file.
 Requires: pam-devel, openldap-devel
 
 ```bash
-$ gcc pam_ldapbind.c -o pam_ldapbind.so -shared -fPIC -lpam -lldap -Wno-implicit-function-declaration
+$ gcc -O2 pam_ldapbind.c -o pam_ldapbind.so -shared -fPIC -lpam -lldap -Wno-implicit-function-declaration
 ```
 ## USAGE
 ```
