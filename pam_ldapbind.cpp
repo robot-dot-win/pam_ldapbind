@@ -70,7 +70,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
 
         struct berval cred { strlen(ppwd), (char *)ppwd };
         if( int retval {ldap_sasl_bind_s(ldaph, puser, LDAP_SASL_SIMPLE, &cred, nullptr, nullptr, nullptr)}; retval != LDAP_SUCCESS) {
-            pam_syslog(pamh, LOG_NOTICE, "LDAP bind failed: %s", ldap_err2string(retval));
+            pam_syslog(pamh, LOG_NOTICE, "LDAP bind failed for user %s: %s", puser, ldap_err2string(retval));
             return PAM_AUTH_ERR;
         }
 
